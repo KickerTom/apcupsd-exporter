@@ -13,6 +13,9 @@ import (
 	"time"
 
 	"github.com/prometheus/client_golang/prometheus"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
+
+
 )
 
 // map[VERSION:3.14.10 (13 September 2011) debian MINTIMEL:3 Minutes BATTDATE:2014-10-21 END APC:2016-08-30 17 NUMXFERS:0 NOMPOWER:480 Watts NOMINV:230 Volts FIRMWARE:925.T1 .I USB FW APC:001,036,0923 STATUS:ONLINE BCHARGE:100.0 Percent TONBATT:0 seconds HOSTNAME:beaker.murf.org CABLE:USB Cable TIMELEFT:104.6 Minutes SELFTEST:NO ALARMDEL:30 seconds STATFLAG:0x07000008 Status Flag DATE:2016-08-30 17 UPSMODE:Stand Alone MAXTIME:0 Seconds SENSE:Medium HITRANS:280.0 Volts LASTXFER:Unacceptable line voltage changes XOFFBATT:N/A SERIALNO:3B1443X05291 UPSNAME:backups-950 DRIVER:USB UPS Driver STARTTIME:2016-08-30 16 LOADPCT:5.0 Percent Load Capacity MBATTCHG:5 Percent LOTRANS:155.0 Volts BATTV:13.5 Volts CUMONBATT:0 seconds MODEL:Back-UPS XS 950U LINEV:242.0 Volts NOMBATTV:12.0 Volts
@@ -184,7 +187,7 @@ func main() {
 
 	}()
 
-	http.Handle("/metrics", prometheus.Handler())
+	http.Handle("/metrics", promhttp.Handler())
 	http.ListenAndServe(*addr, nil)
 }
 
