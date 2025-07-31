@@ -1,4 +1,4 @@
-module vendor/github.com/prometheus/client_golang/prometheus
+module apcupsd-exporter
 
 go 1.22.0
 
