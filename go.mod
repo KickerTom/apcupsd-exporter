@@ -1,4 +1,4 @@
-module apcupsd-exporter
+module github.com/KickerTom/apcupsd-exporter
 
 go 1.22.0
 
